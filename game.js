@@ -15,6 +15,7 @@ function getcomputerchoice() {
 //function that returns the user's choice//
 function getuserchoice() {
   var choice = prompt('rock, paper or scissors?');
+  choice = choice.toLowerCase();
   if (choice === 'rock' || choice === 'paper' || choice === 'scissors') {
     return choice;
   } else {
@@ -31,24 +32,30 @@ function playgame() {
   if (userchoice === 'invalid choice') {
     return 'invalid choice';
   } else if (userchoice === computerchoice) {
-    return 'tie';
+    return 'its a tie as both chose ' + userchoice + '!';
   } else if (userchoice === 'rock') {
     if (computerchoice === 'paper') {
-      return 'computer wins';
+      return (
+        'computer wins as ' + computerchoice + ' beats ' + userchoice + '!'
+      );
     } else {
-      return 'user wins';
+      return 'user wins as ' + userchoice + ' beats ' + computerchoice + '!';
     }
   } else if (userchoice === 'paper') {
     if (computerchoice === 'scissors') {
-      return 'computer wins';
+      return (
+        'computer wins as ' + computerchoice + ' beats ' + userchoice + '!'
+      );
     } else {
-      return 'user wins';
+      return 'user wins as ' + userchoice + ' beats ' + computerchoice + '!';
     }
   } else if (userchoice === 'scissors') {
     if (computerchoice === 'rock') {
-      return 'computer wins';
+      return (
+        'computer wins as ' + computerchoice + ' beats ' + userchoice + '!'
+      );
     } else {
-      return 'user wins';
+      return 'user wins as ' + userchoice + ' beats ' + computerchoice + '!';
     }
   }
 }
