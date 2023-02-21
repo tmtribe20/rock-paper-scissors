@@ -23,42 +23,92 @@ function getuserchoice() {
   }
 }
 
-//function that compares the user's choice to the computer's choice and returns the winner//
+//function that compares the user's choice to the computer's choice and returns the winner updating the score//
 function playgame() {
-  var userchoice = getuserchoice();
-  console.log('user choice: ' + userchoice);
-  var computerchoice = getcomputerchoice();
-  console.log('computer choice: ' + computerchoice);
-  if (userchoice === 'invalid choice') {
-    return 'invalid choice';
-  } else if (userchoice === computerchoice) {
-    return 'its a tie as both chose ' + userchoice + '!';
-  } else if (userchoice === 'rock') {
-    if (computerchoice === 'paper') {
-      return (
-        'computer wins as ' + computerchoice + ' beats ' + userchoice + '!'
-      );
-    } else {
-      return 'user wins as ' + userchoice + ' beats ' + computerchoice + '!';
+  var round = 0;
+  var userScore = 0;
+  var computerScore = 0;
+  var tieScore = 0;
+
+  while (round < 5) {
+    var userChoice = getuserchoice();
+    var computerChoice = getcomputerchoice();
+    while (userChoice === 'invalid choice') {
+      console.log('invalid choice');
+      userChoice = getuserchoice();
     }
-  } else if (userchoice === 'paper') {
-    if (computerchoice === 'scissors') {
-      return (
-        'computer wins as ' + computerchoice + ' beats ' + userchoice + '!'
+    console.log('user choice: ' + userChoice);
+    console.log('computer choice: ' + computerChoice);
+    if (userChoice === computerChoice) {
+      console.log('tie score is ' + tieScore);
+      tieScore++;
+      round++;
+      console.log('its a tie as both chose ' + userChoice);
+      console.log('tie score is ' + tieScore);
+      console.log('round ' + round + ' of 5');
+    } else if (userChoice === 'rock' && computerChoice === 'scissors') {
+      console.log('user wins this round as rock beats scissors');
+      userScore++;
+      round++;
+      console.log(
+        'user score is ' + userScore + ' and computer score is ' + computerScore
       );
-    } else {
-      return 'user wins as ' + userchoice + ' beats ' + computerchoice + '!';
-    }
-  } else if (userchoice === 'scissors') {
-    if (computerchoice === 'rock') {
-      return (
-        'computer wins as ' + computerchoice + ' beats ' + userchoice + '!'
+      console.log('tie score is ' + tieScore);
+      console.log('round ' + round + ' of 5');
+    } else if (userChoice === 'rock' && computerChoice === 'paper') {
+      console.log('computer wins this round as paper beats rock');
+      computerScore++;
+      round++;
+      console.log(
+        'user score is ' + userScore + ' and computer score is ' + computerScore
       );
-    } else {
-      return 'user wins as ' + userchoice + ' beats ' + computerchoice + '!';
+      console.log('tie score is ' + tieScore);
+      console.log('round ' + round + ' of 5');
+    } else if (userChoice === 'paper' && computerChoice === 'rock') {
+      console.log('user wins this round as paper beats rock');
+      userScore++;
+      round++;
+      console.log(
+        'user score is ' + userScore + ' and computer score is ' + computerScore
+      );
+      console.log('tie score is ' + tieScore);
+      console.log('round ' + round + ' of 5');
+    } else if (userChoice === 'paper' && computerChoice === 'scissors') {
+      console.log('computer wins this round as scissors beats paper');
+      computerScore++;
+      round++;
+      console.log(
+        'user score is ' + userScore + ' and computer score is ' + computerScore
+      );
+      console.log('tie score is ' + tieScore);
+      console.log('round ' + round + ' of 5');
+    } else if (userChoice === 'scissors' && computerChoice === 'rock') {
+      console.log('computer wins this round as rock beats scissors');
+      computerScore++;
+      round++;
+      console.log(
+        'user score is ' + userScore + ' and computer score is ' + computerScore
+      );
+      console.log('tie score is ' + tieScore);
+      console.log('round ' + round + ' of 5');
+    } else if (userChoice === 'scissors' && computerChoice === 'paper') {
+      console.log('user wins this round as scissors beats paper');
+      userScore++;
+      round++;
+      console.log(
+        'user score is ' + userScore + ' and computer score is ' + computerScore
+      );
+      console.log('tie score is ' + tieScore);
+      console.log('round ' + round + ' of 5');
     }
+  }
+  if (userScore > computerScore) {
+    console.log('user wins the game');
+  } else if (userScore < computerScore) {
+    console.log('computer wins the game');
+  } else {
+    console.log('game is a tie');
   }
 }
 
-//call the playgame function//
 console.log(playgame());
