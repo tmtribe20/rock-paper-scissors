@@ -38,7 +38,8 @@ function computerSelection() {
   }
 }
 
-//function that compares the user's choice to the computer's choice and returns the winner updating the score//
+//function that plays the game and compares the user's choice to the computer's choice updating the score and checking round//
+
 function playGame() {
   var userChoice = buttonSelected;
   var computerChoice = computerSelection();
